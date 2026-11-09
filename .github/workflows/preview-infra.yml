@@ -17,23 +17,24 @@ name: preview-infra
 # NOT verified here: that a stack boots, that the image exists, that the shared Traefik
 # routes it. That needs the real preview host.
 
-on:
-  pull_request:
-    paths:
-      - ".github/scripts/preview-*"
-      - ".github/actions/preview-host-access/**"
-      - ".github/workflows/preview-*.yml"
-      - "infra/preview/**"
-      - "docs/decisions/ci-preview-environments.md"
-  push:
-    branches: [development]
-    paths:
-      - ".github/scripts/preview-*"
-      - ".github/actions/preview-host-access/**"
-      - ".github/workflows/preview-*.yml"
-      - "infra/preview/**"
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     paths:
+#       - ".github/scripts/preview-*"
+#       - ".github/actions/preview-host-access/**"
+#       - ".github/workflows/preview-*.yml"
+#       - "infra/preview/**"
+#       - "docs/decisions/ci-preview-environments.md"
+#   push:
+#     branches: [development]
+#     paths:
+#       - ".github/scripts/preview-*"
+#       - ".github/actions/preview-host-access/**"
+#       - ".github/workflows/preview-*.yml"
+#       - "infra/preview/**"
+#   workflow_dispatch:
+# 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true

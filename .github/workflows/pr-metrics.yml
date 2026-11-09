@@ -12,15 +12,16 @@ name: PR Metrics
 # Read-only by design: it never pushes, never comments on the repo itself, and
 # needs no write scope beyond the PR comment.
 
-on:
-  pull_request:
-    types: [closed]
-  schedule:
-    # Mondays 06:17 UTC — off the hour, so this does not pile onto the top-of-hour
-    # cron crowd on GitHub's shared scheduler.
-    - cron: '17 6 * * 1'
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     types: [closed]
+#   schedule:
+#     # Mondays 06:17 UTC — off the hour, so this does not pile onto the top-of-hour
+#     # cron crowd on GitHub's shared scheduler.
+#     - cron: '17 6 * * 1'
+#   workflow_dispatch:
+# 
 permissions:
   contents: read
 

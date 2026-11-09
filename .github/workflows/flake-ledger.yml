@@ -16,17 +16,18 @@ name: flake ledger
 # It runs on a schedule rather than on every push because the interesting signal is a
 # RATE over many runs; a per-PR number would just be today's noise.
 
-on:
-  schedule:
-    # Weekdays 05:41 UTC, off the top of the hour where scheduled workflows queue up.
-    - cron: "41 5 * * 1-5"
-  workflow_dispatch:
-    inputs:
-      window-runs:
-        description: "How many recent `ci` runs to fold into the ledger"
-        required: false
-        default: "40"
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   schedule:
+#     # Weekdays 05:41 UTC, off the top of the hour where scheduled workflows queue up.
+#     - cron: "41 5 * * 1-5"
+#   workflow_dispatch:
+#     inputs:
+#       window-runs:
+#         description: "How many recent `ci` runs to fold into the ledger"
+#         required: false
+#         default: "40"
+# 
 permissions:
   actions: read # download the flake-record artifacts of recent runs
   contents: read

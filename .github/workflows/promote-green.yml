@@ -18,19 +18,20 @@ name: promote-green
 #   workflow_dispatch  manual promote / ROLLBACK of a previously built
 #                 `sha-<short>` image (input: sha). Only runs from development.
 
-on:
-  workflow_run:
-    workflows: [ci]
-    types: [completed]
-    branches: [development]
-  workflow_dispatch:
-    inputs:
-      sha:
-        description: "Commit to promote (7-40 hex chars, optionally prefixed sha-). Must be on development or main and already built by docker.yml. Use for rollback."
-        required: true
-        type: string
-
-# Nothing by default; each job asks for exactly what it needs.
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_run:
+#     workflows: [ci]
+#     types: [completed]
+#     branches: [development]
+#   workflow_dispatch:
+#     inputs:
+#       sha:
+#         description: "Commit to promote (7-40 hex chars, optionally prefixed sha-). Must be on development or main and already built by docker.yml. Use for rollback."
+#         required: true
+#         type: string
+# 
+# # Nothing by default; each job asks for exactly what it needs.
 permissions: {}
 
 # One promotion at a time; a queued run waits rather than cancelling a promote

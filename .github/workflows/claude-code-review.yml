@@ -1,17 +1,18 @@
 name: Claude Code Review
 
-on:
-  pull_request:
-    types: [opened, synchronize, ready_for_review, reopened]
-    # Optional: Only run on specific file changes
-    # paths:
-    #   - "src/**/*.ts"
-    #   - "src/**/*.tsx"
-    #   - "src/**/*.js"
-    #   - "src/**/*.jsx"
-
-# Least-privilege default token: read-only. The review job below elevates only
-# the extra scopes it needs (id-token: write).
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     types: [opened, synchronize, ready_for_review, reopened]
+#     # Optional: Only run on specific file changes
+#     # paths:
+#     #   - "src/**/*.ts"
+#     #   - "src/**/*.tsx"
+#     #   - "src/**/*.js"
+#     #   - "src/**/*.jsx"
+# 
+# # Least-privilege default token: read-only. The review job below elevates only
+# # the extra scopes it needs (id-token: write).
 permissions:
   contents: read
 

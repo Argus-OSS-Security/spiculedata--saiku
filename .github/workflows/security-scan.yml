@@ -25,15 +25,16 @@
 
 name: security-scan
 
-on:
-  push:
-    branches: [development, "phase-*"]
-  pull_request:
-  schedule:
-    # Weekly, so a newly-published advisory against a dependency already merged
-    # still surfaces. 04:17 UTC Monday.
-    - cron: "17 4 * * 1"
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches: [development, "phase-*"]
+#   pull_request:
+#   schedule:
+#     # Weekly, so a newly-published advisory against a dependency already merged
+#     # still surfaces. 04:17 UTC Monday.
+#     - cron: "17 4 * * 1"
+# 
 concurrency:
   group: security-scan-${{ github.ref }}
   cancel-in-progress: true

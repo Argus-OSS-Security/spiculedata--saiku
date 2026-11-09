@@ -21,10 +21,11 @@ name: escaped-defect attribution
 #     sparse (only the script), so no PR or fork code is ever fetched or run;
 #   * the token can write issues and nothing else.
 
-on:
-  issues:
-    types: [opened, edited]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   issues:
+#     types: [opened, edited]
+# 
 permissions:
   issues: write # label the issue
   contents: read # sparse checkout of the script

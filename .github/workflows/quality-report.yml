@@ -17,17 +17,18 @@ name: quality-report
 # Triggers: weekly (Monday 05:17 UTC) and on demand. Deliberately NOT on every
 # push — the signal only moves when a batch of work lands, and a weekly read is
 # what a human actually consumes. The per-PR verdict stays with ci.yml.
-on:
-  schedule:
-    # Weekly, Monday 05:17 UTC. Off the hour on purpose — the top of the hour
-    # is when every scheduled workflow on GitHub fires, and this runner would
-    # be queueing behind them.
-    - cron: "17 5 * * 1"
-  workflow_dispatch:
-
-# Read-only. Nothing here writes to the repo — no comments, no issues, no
-# labels, no releases. (The `defects` job adds read-only issue / pull-request
-# scopes at job level for the escaped-defect section.)
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   schedule:
+#     # Weekly, Monday 05:17 UTC. Off the hour on purpose — the top of the hour
+#     # is when every scheduled workflow on GitHub fires, and this runner would
+#     # be queueing behind them.
+#     - cron: "17 5 * * 1"
+#   workflow_dispatch:
+# 
+# # Read-only. Nothing here writes to the repo — no comments, no issues, no
+# # labels, no releases. (The `defects` job adds read-only issue / pull-request
+# # scopes at job level for the escaped-defect section.)
 permissions:
   contents: read
 

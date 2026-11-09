@@ -12,10 +12,11 @@ name: Tier Classifier
 # changed file NAMES through the REST API. Do not add a checkout step, and do not
 # interpolate PR-controlled strings (title, branch, file names) into a shell.
 
-on:
-  pull_request_target:
-    types: [opened, synchronize, reopened]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request_target:
+#     types: [opened, synchronize, reopened]
+# 
 permissions:
   pull-requests: write
 

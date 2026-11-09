@@ -32,18 +32,19 @@ name: ci feedback
 # branches today; listing them here is harmless until they land (the guard test
 # knows about them) and means nobody has to remember to add them afterwards.
 
-on:
-  workflow_run:
-    workflows:
-      - ci
-      - design-system
-      - docker
-      - model-diff
-      - preview-infra
-      - release-prep
-      - security-scan
-    types: [completed]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_run:
+#     workflows:
+#       - ci
+#       - design-system
+#       - docker
+#       - model-diff
+#       - preview-infra
+#       - release-prep
+#       - security-scan
+#     types: [completed]
+# 
 permissions:
   actions: read          # list runs/jobs/artifacts, read job logs
   contents: read         # sparse checkout of the extractor

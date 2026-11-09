@@ -13,14 +13,15 @@ name: nightly-compliance
 # `nightly-compliance`) on the first red night and appends a comment on each
 # later red night, instead of opening an issue per run. When a night goes green
 # it comments and closes that issue. No issue is touched while runs stay green.
-on:
-  schedule:
-    # 02:43 UTC daily. Off the hour on purpose: the top of the hour is when
-    # every scheduled workflow on GitHub fires.
-    - cron: "43 2 * * *"
-  workflow_dispatch:
-
-# Read-only default. Only the `report` job elevates (issues: write).
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   schedule:
+#     # 02:43 UTC daily. Off the hour on purpose: the top of the hour is when
+#     # every scheduled workflow on GitHub fires.
+#     - cron: "43 2 * * *"
+#   workflow_dispatch:
+# 
+# # Read-only default. Only the `report` job elevates (issues: write).
 permissions:
   contents: read
 

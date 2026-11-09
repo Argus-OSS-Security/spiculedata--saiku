@@ -9,11 +9,12 @@ name: dependabot-automerge
 # code; the script is fetched from the default branch through the API. PR text reaches the shell
 # only through env vars. To disable it, delete this file. It does not change repo settings, branch
 # protection or the merge queue: `gh pr merge` enqueues the PR and the queue re-runs `ci`.
-on:
-  workflow_run:
-    workflows: [ci]
-    types: [completed]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_run:
+#     workflows: [ci]
+#     types: [completed]
+# 
 permissions: {}
 
 concurrency:

@@ -14,16 +14,17 @@ name: ghcr / per-PR tag retention
 #
 # --apply needs the package to grant this repo's GITHUB_TOKEN write access; if
 # it does not, the delete fails loudly (exit 1) and nothing is silently skipped.
-on:
-  schedule:
-    - cron: "17 3 * * 1"
-  workflow_dispatch:
-    inputs:
-      apply:
-        description: "Really delete expired tags (default: dry run)"
-        type: boolean
-        default: false
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   schedule:
+#     - cron: "17 3 * * 1"
+#   workflow_dispatch:
+#     inputs:
+#       apply:
+#         description: "Really delete expired tags (default: dry run)"
+#         type: boolean
+#         default: false
+# 
 permissions:
   contents: read
 

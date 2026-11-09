@@ -11,9 +11,10 @@ name: thin-caller-gate
 #
 # PIN. Same full commit SHA as the three callers in ci.yml (the gate itself fails the PR if they differ;
 # .github/scripts/acceptance-caller.test.mjs also checks this file). Bump all of them together.
-on:
-  pull_request:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+# 
 permissions:
   contents: read
 

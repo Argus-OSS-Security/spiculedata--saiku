@@ -29,10 +29,11 @@ name: preview command
 #   * Shares the per-PR concurrency group with preview-env.yml so the two never
 #     race; cross-PR registry updates are serialised by the host lock.
 
-on:
-  issue_comment:
-    types: [created]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   issue_comment:
+#     types: [created]
+# 
 permissions: {}
 
 defaults:

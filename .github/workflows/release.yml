@@ -1,16 +1,17 @@
 name: release
-on:
-  push:
-    tags: ["v*"]
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: "Tag/version for a manual release (e.g. v3.17.0)"
-        required: true
-
-# Least-privilege default: read-only for the whole workflow. Each job below
-# elevates ONLY the scope it needs (see per-job `permissions:` blocks), so a
-# retagged third-party action can never run with more than its job requires.
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     tags: ["v*"]
+#   workflow_dispatch:
+#     inputs:
+#       tag:
+#         description: "Tag/version for a manual release (e.g. v3.17.0)"
+#         required: true
+# 
+# # Least-privilege default: read-only for the whole workflow. Each job below
+# # elevates ONLY the scope it needs (see per-job `permissions:` blocks), so a
+# # retagged third-party action can never run with more than its job requires.
 permissions:
   contents: read
 

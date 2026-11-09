@@ -5,10 +5,11 @@ name: issue-gate
 # neither an "Acceptance criteria" heading nor a markdown task-list item, this removes the label
 # and explains why. The issue body reaches the shell only through an environment variable, never
 # through interpolation. The matching patterns are pinned by .github/scripts/issue-gate.test.mjs.
-on:
-  issues:
-    types: [labeled]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   issues:
+#     types: [labeled]
+# 
 permissions: {}
 
 concurrency:

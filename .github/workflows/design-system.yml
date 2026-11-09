@@ -14,19 +14,20 @@ name: design-system
 # package without bumping its version is a no-op rather than a failure. To cut
 # a new version: bump `version` in saiku-ui/design-system/package.json and
 # merge; the push trigger does the rest.
-on:
-  push:
-    branches: [development, main]
-    paths:
-      - "saiku-ui/design-system/**"
-      - ".github/workflows/design-system.yml"
-  workflow_dispatch:
-    inputs:
-      dry_run:
-        description: "Build and verify, but don't publish"
-        type: boolean
-        default: false
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches: [development, main]
+#     paths:
+#       - "saiku-ui/design-system/**"
+#       - ".github/workflows/design-system.yml"
+#   workflow_dispatch:
+#     inputs:
+#       dry_run:
+#         description: "Build and verify, but don't publish"
+#         type: boolean
+#         default: false
+# 
 permissions:
   contents: read
 

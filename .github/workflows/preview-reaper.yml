@@ -18,16 +18,17 @@ name: preview reaper
 # Trusted code only: scheduled runs and workflow_dispatch use the default
 # branch's copy of this file and the scripts. No PR content is read.
 
-on:
-  schedule:
-    - cron: '17 * * * *'
-  workflow_dispatch:
-    inputs:
-      dry-run:
-        description: 'Read the real host but only log what would change'
-        type: boolean
-        default: true
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   schedule:
+#     - cron: '17 * * * *'
+#   workflow_dispatch:
+#     inputs:
+#       dry-run:
+#         description: 'Read the real host but only log what would change'
+#         type: boolean
+#         default: true
+# 
 permissions: {}
 
 defaults:

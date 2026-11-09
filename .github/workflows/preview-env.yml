@@ -30,11 +30,12 @@ name: preview env
 #   * One run per PR at a time (concurrency); cross-PR registry updates are
 #     serialised by a lock on the host.
 
-on:
-  pull_request_target:
-    branches: [development]
-    types: [opened, reopened, synchronize, labeled, unlabeled, ready_for_review, closed]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request_target:
+#     branches: [development]
+#     types: [opened, reopened, synchronize, labeled, unlabeled, ready_for_review, closed]
+# 
 permissions: {}
 
 defaults:

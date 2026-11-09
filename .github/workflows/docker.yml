@@ -20,33 +20,34 @@ run-name: "${{ inputs.pr && format('docker: image for PR #{0}', inputs.pr) || ''
 # cancelled) has no image, and /preview cannot run it. So /preview dispatches
 # this workflow with `pr=<n>` (see the `target` job): it builds that PR's head
 # and publishes ONLY pr-<n> + the 7-hex SHA, never a rolling tag.
-on:
-  push:
-    branches: [development, main]
-  pull_request:
-    branches: [development]
-    # Only changes that can alter the image. Docs-only PRs do not build one.
-    paths:
-      - "pom.xml"
-      - "**/pom.xml"
-      - "saiku-*/**"
-      - "lib/**"
-      - "Dockerfile"
-      - "docker/**"
-      - ".github/workflows/docker.yml"
-  workflow_dispatch:
-    inputs:
-      pr:
-        description: >-
-          Optional PR number. Builds and publishes that same-repo PR's HEAD commit
-          under its per-PR tags (pr-<n> + the 7-hex head SHA), exactly as a
-          pull_request run would, for a PR that has no image yet. Sent by the
-          /preview command (preview-command.yml); never publishes a rolling tag.
-        required: false
-        type: string
-
-# A newer push to a PR supersedes the older build; development/main/manual runs
-# are never cancelled (each rolling tag must land).
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches: [development, main]
+#   pull_request:
+#     branches: [development]
+#     # Only changes that can alter the image. Docs-only PRs do not build one.
+#     paths:
+#       - "pom.xml"
+#       - "**/pom.xml"
+#       - "saiku-*/**"
+#       - "lib/**"
+#       - "Dockerfile"
+#       - "docker/**"
+#       - ".github/workflows/docker.yml"
+#   workflow_dispatch:
+#     inputs:
+#       pr:
+#         description: >-
+#           Optional PR number. Builds and publishes that same-repo PR's HEAD commit
+#           under its per-PR tags (pr-<n> + the 7-hex head SHA), exactly as a
+#           pull_request run would, for a PR that has no image yet. Sent by the
+#           /preview command (preview-command.yml); never publishes a rolling tag.
+#         required: false
+#         type: string
+# 
+# # A newer push to a PR supersedes the older build; development/main/manual runs
+# # are never cancelled (each rolling tag must land).
 concurrency:
   group: docker-${{ github.event.pull_request.number || inputs.pr || github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}

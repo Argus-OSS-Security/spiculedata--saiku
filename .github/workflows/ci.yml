@@ -7,17 +7,18 @@ name: ci
 # .github/scripts/flake-ledger.mjs (Maven: Surefire rerun, Playwright: retries, vitest: a
 # second attempt of the failing files). Failures are explained for automated fixers by
 # .github/workflows/ci-feedback.yml (docs/ci-feedback.md).
-on:
-  push:
-    branches: [development, "phase-*"]
-  pull_request:
-  # GitHub's merge queue tests the exact merge result (the PR rebased onto the
-  # queue ahead of it) before merging, so a PR cannot land on a stale base. The
-  # queue only merges when this workflow's required check (`ci`) passes on the
-  # `gh-readonly-queue/...` ref, so the workflow MUST run on merge_group.
-  merge_group:
-    types: [checks_requested]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches: [development, "phase-*"]
+#   pull_request:
+#   # GitHub's merge queue tests the exact merge result (the PR rebased onto the
+#   # queue ahead of it) before merging, so a PR cannot land on a stale base. The
+#   # queue only merges when this workflow's required check (`ci`) passes on the
+#   # `gh-readonly-queue/...` ref, so the workflow MUST run on merge_group.
+#   merge_group:
+#     types: [checks_requested]
+# 
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true

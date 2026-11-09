@@ -9,14 +9,15 @@ name: release-prep
 # Cheaper to discover a spotless break here than after a tag is
 # published and the release jobs explode (which is exactly how v4.5.1
 # went sideways).
-on:
-  push:
-    branches:
-      - 'release/*'
-  pull_request:
-    branches:
-      - main
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches:
+#       - 'release/*'
+#   pull_request:
+#     branches:
+#       - main
+# 
 concurrency:
   group: release-prep-${{ github.ref }}
   cancel-in-progress: true

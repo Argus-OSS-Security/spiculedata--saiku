@@ -9,16 +9,17 @@ name: model-diff
 #     before the dashboards are updated is a normal (recoverable) state to be in.
 # The workflow posts a sticky PR comment and fails only if the validator itself cannot run.
 
-on:
-  pull_request:
-    paths:
-      - "**/*.xml"
-      - "**/*.yaml"
-      - "**/*.yml"
-      - "saiku-launcher/src/main/resources/seed/**"
-      - "saiku-core/saiku-service/src/main/java/org/saiku/service/schema/diff/**"
-      - ".github/workflows/model-diff.yml"
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     paths:
+#       - "**/*.xml"
+#       - "**/*.yaml"
+#       - "**/*.yml"
+#       - "saiku-launcher/src/main/resources/seed/**"
+#       - "saiku-core/saiku-service/src/main/java/org/saiku/service/schema/diff/**"
+#       - ".github/workflows/model-diff.yml"
+# 
 concurrency:
   group: model-diff-${{ github.event.pull_request.number }}
   cancel-in-progress: true
